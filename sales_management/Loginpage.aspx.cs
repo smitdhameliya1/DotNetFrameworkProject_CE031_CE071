@@ -6,13 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Configuration;
 
 namespace sales_management
 {
 
     public partial class WebForm1 : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\smitd\\source\\repos\\sales_management\\sales_management\\App_Data\\Register.mdf;Integrated Security=True");
+        SqlConnection con = new SqlConnection();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,13 +22,28 @@ namespace sales_management
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string check = "select count(*) from [Table] where Email_Id = '" + usertxt.Text + "' and Password = '" + passtxt.Text + "' ";
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string check = "select count(*) from [Table] where Name = '" + usertxt.Text + "' and Password = '" + passtxt.Text + "' ";
             SqlCommand com = new SqlCommand(check, con);
             con.Open();
-            int temp = Convert.ToInt32(com.ExecuteScalar().ToString()); ;
+            int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
             con.Close();
-            if(temp == 1)
+            if (temp == 1)
             {
+                string name = usertxt.Text;
+                HttpCookie ck = Request.Cookies["credential"];
+                if (ck == null)
+                {
+                    ck = new HttpCookie("credential");
+                    ck["username"] = name;
+                    Response.Cookies.Add(ck);
+                }
+                else
+                {
+                    ck = new HttpCookie("credential");
+                    ck["username"] = name;
+                    Response.Cookies.Add(ck);
+                }
                 Response.Redirect("Homepage.aspx");
             }
             else

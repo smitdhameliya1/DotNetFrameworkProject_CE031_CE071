@@ -11,7 +11,7 @@ namespace sales_management
 {
 
 
-    public partial class Homepage
+    public partial class CreateProduct
     {
 
         /// <summary>
@@ -24,6 +24,24 @@ namespace sales_management
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// prod_name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox prod_name;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace sales_management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// prod_quantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox prod_quantity;
 
         /// <summary>
         /// Label3 control.
@@ -42,31 +69,31 @@ namespace sales_management
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// logout control.
+        /// prod_costprice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logout;
+        protected global::System.Web.UI.WebControls.TextBox prod_costprice;
 
         /// <summary>
-        /// Button4 control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Button3 control.
+        /// prod_sellprice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.TextBox prod_sellprice;
 
         /// <summary>
         /// Button1 control.
