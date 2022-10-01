@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace sales_management
 {
     public partial class CreateProduct : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\smitd\\source\\repos\\sales_management\\sales_management\\App_Data\\Register.mdf;Integrated Security=True");
+        SqlConnection con = new SqlConnection();
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,6 +24,7 @@ namespace sales_management
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             string ins = "Insert into [product_table](product_name, quantity, cost_price, sell_price) values('" + prod_name.Text + "' ," + prod_quantity.Text + " , " + prod_costprice.Text + "," + prod_sellprice.Text + ")";
             SqlCommand com = new SqlCommand(ins, con);
             con.Open();
@@ -29,8 +32,8 @@ namespace sales_management
             con.Close();
             prod_costprice.Text = "";
             prod_name.Text = "";
-            prod_quantity = null;
-            prod_sellprice = null;
+            prod_quantity.Text = null;
+            prod_sellprice.Text = null;
         }
 
         protected void Button2_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Configuration;
+using System.Xml.Linq;
 
 namespace sales_management
 {
@@ -17,7 +18,14 @@ namespace sales_management
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HttpCookie ck = Request.Cookies["credential"];
+            if (ck != null)
+            {
+                if (ck["username"] != null)
+                {
+                    Response.Redirect("Homepage.aspx");
+                }
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
